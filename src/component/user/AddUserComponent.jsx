@@ -57,25 +57,19 @@ class AddUserComponent extends Component{
   render(){
     return(
       <div>
-        <Typography variant="h4" style={style}>Add User</Typography>
+        <Typography variant="h4" style={style}>유저 등록</Typography>
         <form style={formContainer}>
          
-            <TextField type="text" placeholder="please input your username" name="username" 
+            <TextField type="text" placeholder="이름을 입력하세요." name="username" 
 fullWidth margin="normal" value={this.state.username} onChange={this.onChange} />
 
-            <TextField type="password" placeholder="please input your password" name="password" 
+            <TextField type="password" placeholder="비밀번호를 입력하세요." name="password" 
 fullWidth margin="normal" value={this.state.password} onChange={this.onChange} />
 
-            <TextField placeholder="please input your first name" name="firstName" 
-fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
-
-            <TextField placeholder="please input your last name" name="lastName" 
-fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
-
-            <TextField type="number" placeholder="please input your age" name="age" 
+            <TextField type="number" placeholder="나이를 입력하세요." name="age" 
 fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
 
-            <TextField type="number" placeholder="please input your salary" name="salary" 
+            <TextField type="number" placeholder="급여를 입력하세요." name="salary" 
 fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
 
           <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>

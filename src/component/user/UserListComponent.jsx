@@ -64,38 +64,37 @@ class UserListComponent extends Component{
     this.props.history.push('/add-user');
   }
 
+  
   render(){
 
     return(
       <div>
-        <Typography variant="h4" style={style}>User List</Typography>
-        <Button variant="contained" color="primary" onClick={this.addUser}> Add User </Button>
+        <Typography variant="h4" style={style}>유저 리스트</Typography>
+        <Button variant="contained" color="primary" onClick={this.addUser}> 등록 </Button>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>FistName</TableCell>
-              <TableCell align="right">LastName</TableCell>
-              <TableCell align="right">UserName</TableCell>
-              <TableCell align="right">Age</TableCell>
-              <TableCell align="right">Salary</TableCell>
-              <TableCell align="right">Edit</TableCell>
-              <TableCell align="right">Delete</TableCell>
+              <TableCell>id</TableCell>
+              <TableCell align="center">이름</TableCell>
+              <TableCell align="center">나이</TableCell>
+              <TableCell align="center">급여</TableCell>
+              <TableCell align="center">핸드폰번호</TableCell>
+              <TableCell align="center">수정</TableCell>
+              <TableCell align="center">삭제</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {this.state.users.map( user => 
               <TableRow key={user.id}>
                 <TableCell component="th" scope="user">{user.id}</TableCell>
-                <TableCell align="right">{user.firstName}</TableCell>
-                <TableCell align="right">{user.lastName}</TableCell>
-                <TableCell align="right">{user.username}</TableCell>
-                <TableCell align="right">{user.age}</TableCell>
-                <TableCell align="right">{user.salary}</TableCell>
-                <TableCell align="right" onClick={()=> this.editUser(user.id)}>
+                <TableCell align="center">{user.username}</TableCell>
+                <TableCell align="center">{user.age}</TableCell>
+                <TableCell align="center">{user.salary}</TableCell>
+                <TableCell align="center">{user.phonenum}</TableCell>
+                <TableCell align="center" onClick={()=> this.editUser(user.id)}>
                   <CreateIcon />
                 </TableCell>
-                <TableCell align="right" onClick={()=> this.deleteUser(user.id)}>
+                <TableCell align="center" onClick={()=> this.deleteUser(user.id)}>
                   <DeleteIcon />
                 </TableCell>
               </TableRow>

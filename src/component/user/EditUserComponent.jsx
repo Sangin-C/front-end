@@ -13,10 +13,9 @@ class EditUserComponent extends Component{
     this.state = {
       id: '',
       username: '',
-      firstName: '',
-      lastName: '',
       age: '',
       salary: '',
+      phonenum: '',
       message: null
     }
   }
@@ -32,11 +31,10 @@ class EditUserComponent extends Component{
         this.setState({
           id: user.id,
           username: user.username,
-          firstName: user.firstName,
-          lastName: user.lastName,
           age: user.age,
-          salary: user.salary
-        })
+          salary: user.salary,
+          phonenum: user.phonenum
+          })
       })
       .catch(err => {
         console.log('loadUser() 에러', err);
@@ -55,10 +53,9 @@ class EditUserComponent extends Component{
     let user = {
       id: this.state.id,
       password: this.state.password,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
       age: this.state.age,
-      salary: this.state.salary
+      salary: this.state.salary,
+      phonenum: this.state.phonenum
     }
 
     ApiService.editUser(user)
@@ -76,22 +73,19 @@ class EditUserComponent extends Component{
   render(){
     return(
       <div>
-        <Typography variant="h4" style={style}>Edit User</Typography>
+        <Typography variant="h4" style={style}>유저 수정</Typography>
         <form>
             <TextField type="text" name="username" readOnly={true} 
             fullWidth margin="normal" value={this.state.username} />
 
-            <TextField placeholder="Edit your first name" name="firstName" 
-            fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
-
-            <TextField placeholder="Edit your last name" name="lastName" 
-            fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
-
-            <TextField type="number" placeholder="Edit your age" name="age" 
+            <TextField type="number" placeholder="나이를 입력하세요." name="age" 
             fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
 
-            <TextField type="number" placeholder="Edit your salary" name="salary" 
+            <TextField type="number" placeholder="급여를 입력하세요." name="salary" 
             fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
+
+            <TextField type="text" placeholder="핸드폰번호를 입력하세요." name="phonenum" 
+            fullWidth margin="normal" value={this.state.phonenum} onChange={this.onChange} />
 
           <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
 
