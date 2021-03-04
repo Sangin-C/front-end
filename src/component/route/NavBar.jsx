@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,23 +10,39 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 
 
-const NavBar = () => {
+class NavBar extends Component{
 
-  return(
-    <div>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" style={style}>
-            리액트+SpringBoot ToyProject
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+  constructor(props){
+    super(props);
+
+    this.state = {
+
+    }
+  }
+
+  render(){
+    return(
+      <div>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton edge="start" color="inherit" aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" style={style}>
+              리액트+SpringBoot ToyProject
+            </Typography>
+            <Link to="/users">
+             <Button color="inherit">유저리스트</Button>
+            </Link>
+            <Link to="/boards">
+             <Button color="inherit">게시판리스트</Button>
+            </Link>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 const style = {

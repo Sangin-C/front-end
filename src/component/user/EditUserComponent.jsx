@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ApiService from "../../ApiService";
+import UserApiService from "../ApiService/UserApiService";
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -25,7 +25,7 @@ class EditUserComponent extends Component{
   }
 
   loadUser = () => {
-    ApiService.fetchUserByID(window.localStorage.getItem("userID"))
+    UserApiService.fetchUserByID(window.localStorage.getItem("userID"))
       .then( res => {
         let user = res.data;
         this.setState({
@@ -58,7 +58,7 @@ class EditUserComponent extends Component{
       phonenum: this.state.phonenum
     }
 
-    ApiService.editUser(user)
+    UserApiService.editUser(user)
       .then( res => {
         this.setState({
           message : user.lastName + '님 정보가 수정되었습니다.'
