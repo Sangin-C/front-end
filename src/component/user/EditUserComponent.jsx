@@ -25,7 +25,7 @@ class EditUserComponent extends Component{
   }
 
   loadUser = () => {
-    UserApiService.fetchUserByID(window.localStorage.getItem("userID"))
+    UserApiService.userInfo(window.localStorage.getItem("userID"))
       .then( res => {
         let user = res.data;
         this.setState({
@@ -58,7 +58,7 @@ class EditUserComponent extends Component{
       phonenum: this.state.phonenum
     }
 
-    UserApiService.editUser(user)
+    UserApiService.updateUser(user)
       .then( res => {
         this.setState({
           message : user.lastName + '님 정보가 수정되었습니다.'

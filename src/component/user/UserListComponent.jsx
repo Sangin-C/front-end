@@ -33,7 +33,7 @@ class UserListComponent extends Component{
 
   //유저리스트를 SpringBoot와 Api통신을 통해 가져오는 메소드이다.
   reloadUserList = () => {
-    UserApiService.fetchUsers()
+    UserApiService.userList()
       .then( res => {
         this.setState({
           users: res.data
@@ -44,6 +44,23 @@ class UserListComponent extends Component{
       })
   }
 
+  //등록버튼을 클릭했을때 호출되는 함수이다.
+  addUser = () => {
+    //window.localStorage에 셋팅되어있는 값을 삭제한다.
+    window.localStorage.removeItem("userID");
+    //route를 통해 '/add-user' url을 호출하면 AddUserComponent.jsx로 이동하도록한다.
+    this.props.history.push('/add-user');
+  }
+
+  //수정버튼을 클릭했을때 호출되는 함수이다.
+  editUser = (userID) => {
+    //window.localStorage를 통해 유저의 id값을 일시적으로 저장한다.
+    window.localStorage.setItem("userID", userID);
+    //route를 통해 '/edit-user' url을 호출하면 EditUserComponent.jsx로 이동하도록한다.
+    this.props.history.push('/edit-user');
+  }
+
+  
   //유저삭제를 위해 SpringBoot와 Api통신을 통해 DB를 삭제한다.
   deleteUser = (userID) => {
     //Api통신을 하기위해 ApiSercive.js에 만들어 놓은 deleteUser 함수를 호출한다.
@@ -64,25 +81,8 @@ class UserListComponent extends Component{
         console.log('deleteUser() Error!', err);
       })
   }
-  
-  //수정버튼을 클릭했을때 호출되는 함수이다.
-  editUser = (ID) => {
-    //window.localStorage를 통해 유저의 id값을 일시적으로 저장한다.
-    window.localStorage.setItem("userID", ID);
-    //route를 통해 '/edit-user' url을 호출하면 EditUserComponent.jsx로 이동하도록한다.
-    this.props.history.push('/edit-user');
-  }
 
 
-  //등록버튼을 클릭했을때 호출되는 함수이다.
-  addUser = () => {
-    //window.localStorage에 셋팅되어있는 값을 삭제한다.
-    window.localStorage.removeItem("userID");
-    //route를 통해 '/add-user' url을 호출하면 AddUserComponent.jsx로 이동하도록한다.
-    this.props.history.push('/add-user');
-  }
-
-  
   render(){
     return(
       <div>

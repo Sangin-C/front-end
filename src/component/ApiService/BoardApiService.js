@@ -4,7 +4,7 @@ const BOARD_API_BASE_URL = "http://localhost:8080/boards";
 
 class BoardApiService {
 
-    getBoards(){
+    boardList(){
         return axios.get(BOARD_API_BASE_URL);
     }
 }

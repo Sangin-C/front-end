@@ -4,11 +4,11 @@ import axios from 'axios';
 const USER_API_BASE_URL = "http://localhost:8080/users";
 class UserApiService {
 
-  fetchUsers(){
+  userList(){
     return axios.get(USER_API_BASE_URL);
   }
 
-  fetchUserByID(userID){
+  userInfo(userID){
     return axios.get(USER_API_BASE_URL + '/' + userID);
   }
 
@@ -16,11 +16,11 @@ class UserApiService {
     return axios.delete(USER_API_BASE_URL + '/' + userID);
   }
   
-  addUser(user){
+  insertUser(user){
     return axios.post(USER_API_BASE_URL, user);
   }
 
-  editUser(user){
+  updateUser(user){
     return axios.put(USER_API_BASE_URL + '/' + user.id, user)
   }
 

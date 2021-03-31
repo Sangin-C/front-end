@@ -29,13 +29,13 @@ class NavBar extends Component{
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" style={style}>
-              리액트+SpringBoot ToyProject
+              <Link to="/">리액트+SpringBoot ToyProject</Link>
             </Typography>
             <Link to="/users">
-             <Button color="inherit">유저리스트</Button>
+              <Button color="inherit">유저리스트</Button>
             </Link>
             <Link to="/boards">
-             <Button color="inherit">게시판리스트</Button>
+              <Button color="inherit">게시판리스트</Button>
             </Link>
             <Button color="inherit">Login</Button>
           </Toolbar>
