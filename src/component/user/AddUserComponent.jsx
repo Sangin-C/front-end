@@ -41,8 +41,8 @@ class AddUserComponent extends Component{
       phonenum: this.state.phonenum
     }
 
-    //Api통신을 하기위해 UserApiSercive.js에 만들어 놓은 insertUser함수를 호출한다.
-    UserApiService.insertUser(user)
+    //Api통신을 하기위해 UserApiSercive.js에 만들어 놓은 userRegist함수를 호출한다.
+    UserApiService.userRegist(user)
     //통신이 성공하면
     .then( res => {
         this.setState({

@@ -50,14 +50,14 @@ class BoardListComponent extends Component{
       //게시판 ID 저장
       window.localStorage.setItem("boardID", boardID);
       //route를 통해 컴포넌트 이동
-      this.props.histroy.push("/edit-borad");
+      this.props.history.push("/edit-board");
     }
 
 
     deleteBoard = (boardID) => {
       window.localStorage.setItem("boarID", boardID);
 
-      BoardApiService.deleteBoard(boardID)
+      BoardApiService.boardDelete(boardID)
         .then( res => {
           this.setState({
             message: "Board Delete Successfully."
@@ -65,7 +65,8 @@ class BoardListComponent extends Component{
           this.setState({
             boards: this.state.boards.filter( board =>
               board.id !== boardID)
-          })
+          });
+          console.log(this.state.message);
         })
         .catch(err =>{
           console.log('deleteBoard() Error!',err);

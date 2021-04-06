@@ -5,7 +5,7 @@ import AddUserComponent from "../user/AddUserComponent";
 import EditUserComponent from "../user/EditUserComponent";
 import BoardListComponent from "../board/BoardListComponent";
 import AddBoardComponent from "../board/AddBoardComponent";
-
+import EditBoardComponent from "../board/EditBoardComponent";
 
 const AppRouter = () => {
    return(
@@ -20,6 +20,7 @@ const AppRouter = () => {
             {/* 게시판 */}
             <Route path="/boards" component={BoardListComponent} />
             <Route path="/add-board" component={AddBoardComponent} />
+            <Route path="/edit-board" component={EditBoardComponent} />
           </Switch>
      </div>
    );

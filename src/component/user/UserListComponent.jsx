@@ -64,7 +64,7 @@ class UserListComponent extends Component{
   //유저삭제를 위해 SpringBoot와 Api통신을 통해 DB를 삭제한다.
   deleteUser = (userID) => {
     //Api통신을 하기위해 ApiSercive.js에 만들어 놓은 deleteUser 함수를 호출한다.
-    UserApiService.deleteUser(userID)
+    UserApiService.userDelete(userID)
       //통신이 성공하면
       .then( res => {
         this.setState({

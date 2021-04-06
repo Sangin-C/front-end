@@ -58,7 +58,7 @@ class EditUserComponent extends Component{
       phonenum: this.state.phonenum
     }
 
-    UserApiService.updateUser(user)
+    UserApiService.userUpdate(user)
       .then( res => {
         this.setState({
           message : user.lastName + '님 정보가 수정되었습니다.'

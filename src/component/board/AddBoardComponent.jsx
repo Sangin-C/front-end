@@ -34,11 +34,11 @@ class AddBoardComponent extends Component {
             contents: this.state.contents
         }
 
-        //API통신을 위해 BoardApiService.js에 만들어놓은 insertBoard함수를 호출한다.
-        BoardApiService.insertBoard(board)
+        //API통신을 위해 BoardApiService.js에 만들어놓은 boardRegist함수를 호출한다.
+        BoardApiService.boardRegist(board)
             .then(res =>{
                 this.setState({
-                    message: board.title + '이 성공적으로 등록되었습니다.'
+                    message: board.title + '이 등록되었습니다.'
                 })
                 console.log(this.state.message);
                 this.props.history.push("/boards");
@@ -64,7 +64,7 @@ class AddBoardComponent extends Component {
                 <TextField type="text" name="contents" label="내용" multiline rows={4} variant="outlined"
                 fullWidth margin="normal" value={this.state.contents} onChange={this.onChange} />
 
-                <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
+                <Button variant="contained" color="primary" onClick={this.saveBoard}>Save</Button>
             </form>
           </div>  
         );
